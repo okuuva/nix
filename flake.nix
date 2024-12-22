@@ -23,9 +23,11 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.alejandra # nix linter
+        pkgs.carapace
         pkgs.git
         pkgs.go
         pkgs.fish
+        pkgs.fzf
         pkgs.neovim
         pkgs.nodejs_22
         pkgs.mkalias
@@ -35,6 +37,7 @@
         pkgs.starship
         pkgs.sqlite
         pkgs.ripgrep
+        pkgs.zoxide
         pkgs.alacritty
         pkgs.signal-desktop
 
