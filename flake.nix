@@ -25,6 +25,7 @@
         pkgs.alejandra # nix linter
         pkgs.git
         pkgs.go
+        pkgs.fish
         pkgs.neovim
         pkgs.nodejs_22
         pkgs.mkalias
@@ -122,7 +123,7 @@
       nix.settings.experimental-features = "nix-command flakes";
 
       # Enable alternative shell support in nix-darwin.
-      # programs.fish.enable = true;
+      programs.fish.enable = true;
 
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
