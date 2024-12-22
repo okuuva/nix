@@ -28,6 +28,7 @@
         pkgs.go
         pkgs.fish
         pkgs.fzf
+        pkgs.lazygit
         pkgs.neovim
         pkgs.nodejs_22
         pkgs.mkalias
