@@ -55,6 +55,7 @@
         ];
         casks = [
           "bettertouchtool"
+          "ghostty"
           "firefox"
           "iina"
           "1password" # regular package does not work on Darwin
