@@ -48,6 +48,10 @@
         # pkgs._1password-gui
       ];
 
+      environment.variables = {
+        EDITOR = "nvim";
+      };
+
       homebrew = {
         enable = true;
         brews = [
