@@ -112,7 +112,12 @@
           mru-spaces = false;
           persistent-apps = [];
         };
-        finder.FXPreferredViewStyle = "Nlsv";
+        finder = {
+          AppleShowAllExtensions = true;
+          FXPreferredViewStyle = "Nlsv";
+          FXRemoveOldTrashItems = true;
+          _FXSortFoldersFirst = true;
+        };
         loginwindow.GuestEnabled = false;
         NSGlobalDomain = {
           AppleICUForce24HourTime = true;
