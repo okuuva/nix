@@ -1,5 +1,5 @@
 {
-  description = "Spiky nix-darwin system flake";
+  description = "My nix-darwin system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -156,7 +156,7 @@
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#spiky
-    darwinConfigurations."spiky" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         nix-homebrew.darwinModules.nix-homebrew
@@ -169,7 +169,7 @@
             enableRosetta = true;
 
             # User owning the Homebrew prefix
-            user = "spike";
+            user = "oula";
           };
         }
       ];
