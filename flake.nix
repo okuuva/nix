@@ -30,6 +30,7 @@
         pkgs.fzf
         pkgs.lazygit
         pkgs.uv
+        pkgs.nushell
         pkgs.neovim
         pkgs.nodejs_22
         pkgs.mkalias
