@@ -39,7 +39,6 @@
         pkgs.sqlite
         pkgs.ripgrep
         pkgs.zoxide
-        pkgs.alacritty
         pkgs.signal-desktop
 
         pkgs.discord
