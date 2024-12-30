@@ -24,23 +24,24 @@
       environment.systemPackages = [
         pkgs.alejandra # nix linter
         pkgs.carapace
-        pkgs.git
-        pkgs.go
+        pkgs.cargo
         pkgs.fish
         pkgs.fzf
+        pkgs.git
+        pkgs.go
         pkgs.lazygit
-        pkgs.uv
-        pkgs.nushell
+        pkgs.mkalias
         pkgs.neovim
         pkgs.nodejs_22
-        pkgs.mkalias
-        pkgs.rustc
-        pkgs.cargo
-        pkgs.tree-sitter
-        pkgs.starship
-        pkgs.sqlite
+        pkgs.nushell
         pkgs.ripgrep
+        pkgs.rustc
+        pkgs.sqlite
+        pkgs.starship
+        pkgs.tree-sitter
+        pkgs.uv
         pkgs.zoxide
+
         pkgs.signal-desktop
 
         pkgs.discord
