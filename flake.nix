@@ -58,6 +58,7 @@
         enable = true;
         brews = [
           "mas"
+          "sqlite" # use brew for now so nvim plugin doesn't panick
         ];
         casks = [
           "bettertouchtool"
