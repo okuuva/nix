@@ -13,13 +13,12 @@
     if isDarwin
     then "darwin"
     else "nixos";
-  platformModules = "${platform}Modules";
 in {
   imports = lib.flatten [
     (map lib.custom.relativeToRoot [
       "modules/common"
       "modules/${platform}"
-      "hosts/common/core/${platform}.nix"
+      "hosts/common/core/${platform}"
     ])
   ];
 

@@ -1,8 +1,13 @@
 {
   pkgs,
   config,
+  cpuArchitecture,
   ...
 }: {
+  imports = lib.flatten [
+    ./${cpuArchitecture}.nix
+  ];
+
   environment.systemPackages = [
     pkgs.mkalias
 
