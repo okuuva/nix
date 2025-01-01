@@ -4,6 +4,8 @@
   ...
 }: {
   environment.systemPackages = [
+    pkgs.mkalias
+
     pkgs.signal-desktop
     pkgs.discord
     pkgs.obsidian
@@ -27,35 +29,17 @@
       "E-kirjasto" = 6471490203;
       "Tailscale" = 1475387142;
     };
-    onActivation.cleanup = "zap";
-    onActivation.autoUpdate = true;
-    onActivation.upgrade = true;
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+      upgrade = true;
+    };
   };
 
-  system.activationScripts.applications.text = let
-    env = pkgs.buildEnv {
-      name = "system-applications";
-      paths = config.environment.systemPackages;
-      pathsToLink = "/Applications";
-    };
-  in
-    pkgs.lib.mkForce ''
-      echo "setting up /Applications..." >&2
-      rm -rf /Applications/Nix\ Apps
-      mkdir -p /Applications/Nix\ Apps
-      find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
-      while read -r src; do
-        app_name=$(basename "$src")
-        echo "copying $src" >&2
-        ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
-      done
-    '';
-
-  system.activationScripts.extraActivation.text = ''
-    softwareupdate --install-rosetta --agree-to-license
-  '';
-
   security.pam.enableSudoTouchIdAuth = true;
+
+  # Set Git commit hash for darwin-version.
+  system.configurationRevision = self.rev or self.dirtyRev or null;
 
   system.defaults = {
     controlcenter.BatteryShowPercentage = true;
@@ -84,9 +68,22 @@
     remapCapsLockToEscape = true;
   };
 
-  services.tailscale.enable = true;
-
-  nix.settings.experimental-features = "nix-command flakes";
-
-  programs.fish.enable = true;
+  system.activationScripts.applications.text = let
+    env = pkgs.buildEnv {
+      name = "system-applications";
+      paths = config.environment.systemPackages;
+      pathsToLink = "/Applications";
+    };
+  in
+    pkgs.lib.mkForce ''
+      echo "setting up /Applications..." >&2
+      rm -rf /Applications/Nix\ Apps
+      mkdir -p /Applications/Nix\ Apps
+      find ${env}/Applications -maxdepth 1 -type l -exec readlink '{}' + |
+      while read -r src; do
+        app_name=$(basename "$src")
+        echo "copying $src" >&2
+        ${pkgs.mkalias}/bin/mkalias "$src" "/Applications/Nix Apps/$app_name"
+      done
+    '';
 }
