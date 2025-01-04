@@ -1,8 +1,6 @@
 {
-  pkgs,
-  config,
   ...
 }: {
   # Platform-specific configuration
-  nixpkgs.hostPlatform = "x86_64-darwin";
+  nix-darwin.inputs.nixpkgs.hostPlatform = "x86_64-darwin";
 }
