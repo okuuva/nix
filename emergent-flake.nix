@@ -57,16 +57,21 @@
     # nixosConfigurations = mkHostConfigs (readHosts "nixos") false;
     darwinConfigurations = mkHostConfigs (readHosts "darwin") "darwin";
 
-  inputs = {
-    #
-    # ========= Official Darwin Package Sources =========
-    #
+    inputs = {
+      # Unstable works for both NixOS and Darwin
+      pkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    nixpkgs-darwin.url = "github:nixos/nixpkgs/nixpkgs-24.11-darwin";
-    nix-darwin = {
-      url = "github:lnl7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs-darwin";
+      # NixOS
+      pkgs-stable-nixos.url = "github:nixos/nixpkgs/nixos-23.05";
+      nixpkgs.follows = "pkgs-unstable";
+
+      # Darwin (and homebrew)
+      pkgs-stable-darwin.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+      nix-darwin = {
+        url = "github:lnl7/nix-darwin";
+        inputs.nixpkgs.follows = "pkgs-unstable";
+      };
+      nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     };
-
   };
 }
