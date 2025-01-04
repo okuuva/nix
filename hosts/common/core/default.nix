@@ -6,14 +6,9 @@
   config,
   lib,
   pkgs,
-  isDarwin,
+  platform,
   ...
-}: let
-  platform =
-    if isDarwin
-    then "darwin"
-    else "nixos";
-in {
+}: {
   imports = lib.flatten [
     (map lib.custom.relativeToRoot [
       "modules/common"
