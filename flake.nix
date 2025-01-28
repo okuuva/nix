@@ -59,10 +59,10 @@
 
         pkgs.signal-desktop
 
-        pkgs.discord
-        pkgs.obsidian
         pkgs._1password-cli
         # pkgs._1password-gui
+        pkgs.discord
+        pkgs.obsidian
 
         pkgs.lua51Packages.lua
         pkgs.luajitPackages.luarocks
