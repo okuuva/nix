@@ -74,7 +74,7 @@
           "1password" # regular package does not work on Darwin
         ];
         masApps = {
-          "E-kirjasto" = 6471490203;
+          # "E-kirjasto" = 6471490203;
           "Tailscale" = 1475387142;
         };
         onActivation.cleanup = "zap";
