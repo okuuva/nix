@@ -28,22 +28,33 @@
         pkgs.alejandra # nix linter
         pkgs.carapace
         pkgs.cargo
+        pkgs.curl
+        pkgs.fd
         pkgs.fish
         pkgs.fzf
         pkgs.git
+        pkgs.gnutar
         pkgs.go
         pkgs.lazygit
+        pkgs.lsd
         pkgs.mkalias
         pkgs.neovim
         pkgs.nix-search-cli
         pkgs.nodejs_22
         pkgs.nushell
+        pkgs.prettierd
         pkgs.ripgrep
         pkgs.rustc
+        pkgs.shellcheck
+        pkgs.shellharden
+        pkgs.shfmt
         pkgs.sqlite
         pkgs.starship
+        pkgs.stylua
         pkgs.tree-sitter
         pkgs.uv
+        pkgs.wget
+        pkgs.yq
         pkgs.zoxide
 
         pkgs.signal-desktop
@@ -52,6 +63,11 @@
         pkgs.obsidian
         pkgs._1password-cli
         # pkgs._1password-gui
+
+        pkgs.lua51Packages.lua
+        pkgs.luajitPackages.luarocks
+
+        pkgs.python312Packages.pynvim
 
         mise.packages.aarch64-darwin.mise
       ];
