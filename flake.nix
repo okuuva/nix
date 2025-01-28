@@ -35,6 +35,7 @@
         pkgs.lazygit
         pkgs.mkalias
         pkgs.neovim
+        pkgs.nix-search-cli
         pkgs.nodejs_22
         pkgs.nushell
         pkgs.ripgrep
