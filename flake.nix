@@ -6,6 +6,8 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    mise.url = "github:jdx/mise";
+    mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
   };
 
   outputs = inputs @ {
@@ -13,6 +15,7 @@
     nix-darwin,
     nixpkgs,
     nix-homebrew,
+    mise,
   }: let
     configuration = {
       pkgs,
@@ -48,6 +51,8 @@
         pkgs.obsidian
         pkgs._1password-cli
         # pkgs._1password-gui
+
+        mise.packages.aarch64-darwin.mise
       ];
 
       environment.variables = {
