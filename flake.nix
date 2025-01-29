@@ -88,7 +88,10 @@
           "bettertouchtool"
           "firefox"
           "ghostty"
+          "google-drive"
           "iina"
+          "podman-desktop"
+          "uhk-agent"
         ];
         masApps = {
           # "E-kirjasto" = 6471490203;
