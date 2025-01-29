@@ -51,6 +51,7 @@
         pkgs.sqlite
         pkgs.starship
         pkgs.stylua
+        pkgs.tmux
         pkgs.tree-sitter
         pkgs.uv
         pkgs.wget
