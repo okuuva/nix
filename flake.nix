@@ -156,10 +156,6 @@
         };
       };
 
-      system.keyboard = {
-        enableKeyMapping = true;
-        remapCapsLockToEscape = true;
-      };
 
       services.tailscale.enable = true;
 
