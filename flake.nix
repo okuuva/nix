@@ -151,7 +151,7 @@
         NSGlobalDomain = {
           AppleICUForce24HourTime = true;
           AppleInterfaceStyle = "Dark";
-          InitialKeyRepeat = 12;
+          InitialKeyRepeat = 20;
           KeyRepeat = 2;
         };
       };
