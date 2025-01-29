@@ -166,6 +166,10 @@
         };
       };
 
+      networking = {
+        hostName = "oula-mbp-a2485-work";
+        localHostName = "oula-mbp-a2485-work";
+      };
 
       services.tailscale.enable = true;
 
@@ -191,7 +195,7 @@
   in {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#spiky
-    darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations."oula-mbp-a2485-work" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         nix-homebrew.darwinModules.nix-homebrew
