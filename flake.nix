@@ -92,6 +92,13 @@
           "iina"
           "podman-desktop"
           "uhk-agent"
+
+          "choosy"
+          "cursor"
+          "docker"
+          "google-chrome" # regular package has trouble integrating with 1password
+          "slack" # regular package does not download
+          "whatsapp" # regular package does not download
         ];
         masApps = {
           # "E-kirjasto" = 6471490203;
