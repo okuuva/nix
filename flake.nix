@@ -142,6 +142,9 @@
           AppleShowAllExtensions = true;
           FXPreferredViewStyle = "Nlsv";
           FXRemoveOldTrashItems = true;
+          NewWindowTarget = "Home";
+          ShowPathbar = true;
+          ShowStatusBar = true;
           _FXSortFoldersFirst = true;
         };
         loginwindow.GuestEnabled = false;
