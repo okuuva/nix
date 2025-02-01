@@ -58,7 +58,6 @@
         pkgs.yq
         pkgs.zoxide
 
-        pkgs.signal-desktop
 
         pkgs._1password-cli
         # pkgs._1password-gui
@@ -91,6 +90,7 @@
           "google-drive"
           "iina"
           "podman-desktop"
+          "signal"
           "uhk-agent"
         ];
         masApps = {
