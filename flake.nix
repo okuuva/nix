@@ -33,6 +33,7 @@
         pkgs.fish
         pkgs.fzf
         pkgs.git
+        pkgs.glow
         pkgs.gnutar
         pkgs.go
         pkgs.lazygit
