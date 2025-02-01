@@ -80,7 +80,13 @@
         enable = true;
         brews = [
           "mas"
-          "sqlite" # use brew for now so nvim plugin doesn't panick
+          # pyenv-build deps
+          "openssl"
+          "readline"
+          "sqlite3" # also needed by nvim
+          "xz"
+          "zlib" # also needed by nvim (I think)
+          "tcl-tk@8"
         ];
         casks = [
           "1password" # regular package does not work on Darwin
