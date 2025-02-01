@@ -101,6 +101,7 @@
           "podman-desktop"
           "signal"
           "uhk-agent"
+          "zen-browser"
 
           "choosy"
           "cursor"
