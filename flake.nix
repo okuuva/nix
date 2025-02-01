@@ -101,6 +101,7 @@
           "podman-desktop"
           "signal"
           "uhk-agent"
+          "zen-browser"
         ];
         masApps = {
           # "E-kirjasto" = 6471490203;
@@ -167,7 +168,6 @@
           KeyRepeat = 2;
         };
       };
-
 
       services.tailscale.enable = true;
 
