@@ -59,6 +59,8 @@
         pkgs.yq
         pkgs.zoxide
 
+        # mac only
+        pkgs.reattach-to-user-namespace
 
         pkgs._1password-cli
         # pkgs._1password-gui
