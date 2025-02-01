@@ -94,13 +94,13 @@
         casks = [
           "1password" # regular package does not work on Darwin
           "bettertouchtool"
-          "firefox"
           "ghostty"
           "google-drive"
           "iina"
           "podman-desktop"
           "signal"
           "uhk-agent"
+          "zen-browser"
 
           "choosy"
           "cursor"
