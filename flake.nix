@@ -64,7 +64,8 @@
 
         pkgs._1password-cli
         # pkgs._1password-gui
-        pkgs.obsidian
+        # pkgs.obsidian  # stopped working because dmg upacking fails:
+        # https://discourse.nixos.org/t/help-with-error-only-hfs-file-systems-are-supported-on-ventura/25873/7
 
         pkgs.lua51Packages.lua
         pkgs.luajitPackages.luarocks
@@ -97,6 +98,7 @@
           "google-drive"
           "iina"
           "legcord"
+          "obsidian"
           "podman-desktop"
           "signal"
           "uhk-agent"
