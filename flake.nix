@@ -33,18 +33,22 @@
         pkgs.fd
         pkgs.fish
         pkgs.fzf
+        pkgs.ghostscript_headless
         pkgs.git
         pkgs.glow
         pkgs.gnutar
         pkgs.go
+        pkgs.imagemagick
         pkgs.lazygit
         pkgs.lsd
+        pkgs.mermaid-cli
         pkgs.mkalias
         pkgs.neovim
         pkgs.nix-search-cli
         pkgs.nodejs_22
         pkgs.nushell
         pkgs.page
+        pkgs.pngpaste
         pkgs.prettierd
         pkgs.qmk
         pkgs.ripgrep
@@ -55,6 +59,7 @@
         pkgs.sqlite
         pkgs.starship
         pkgs.stylua
+        pkgs.tectonic
         pkgs.tmux
         pkgs.tree-sitter
         pkgs.uv
@@ -75,6 +80,7 @@
         pkgs.lua51Packages.lua
         pkgs.luajitPackages.luarocks
 
+        pkgs.python312Packages.pylatexenc
         pkgs.python312Packages.pynvim
 
         mise.packages.aarch64-darwin.mise
