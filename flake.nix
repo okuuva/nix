@@ -26,6 +26,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.alejandra # nix linter
+        pkgs.btop
         pkgs.carapace
         pkgs.cargo
         pkgs.curl
