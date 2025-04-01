@@ -6,7 +6,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    mise.url = "github:jdx/mise";
+    mise.url = "github:jdx/mise?ref=v2025.2.8";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
   };
 
