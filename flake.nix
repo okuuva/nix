@@ -60,6 +60,8 @@
         pkgs.zoxide
 
         # mac only
+        pkgs.pam-reattach
+        pkgs.pam-watchid
         pkgs.reattach-to-user-namespace
 
         pkgs._1password-cli
@@ -143,8 +145,13 @@
         softwareupdate --install-rosetta --agree-to-license
       '';
 
-      # Allow using TouchID for sudo
-      security.pam.enableSudoTouchIdAuth = true;
+      security.pam.services.sudo_local = {
+        # Allow using TouchID and Apple Watch for sudo
+        touchIdAuth = true;
+        watchIdAuth = true;
+        # Enable them for tmux as well
+        reattach = true;
+      };
 
       system.defaults = {
         controlcenter.BatteryShowPercentage = true;
