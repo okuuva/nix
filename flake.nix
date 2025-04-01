@@ -190,8 +190,6 @@
         localHostName = "oula-mbp-a2485-work";
       };
 
-      services.tailscale.enable = true;
-
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
