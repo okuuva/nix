@@ -100,6 +100,7 @@
           "legcord"
           "obsidian"
           "podman-desktop"
+          "raycast"
           "signal"
           "uhk-agent"
           "zen-browser"
