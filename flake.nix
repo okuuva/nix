@@ -64,7 +64,6 @@
 
         pkgs._1password-cli
         # pkgs._1password-gui
-        pkgs.discord
         pkgs.obsidian
 
         pkgs.lua51Packages.lua
@@ -97,6 +96,7 @@
           "ghostty"
           "google-drive"
           "iina"
+          "legcord"
           "podman-desktop"
           "signal"
           "uhk-agent"
