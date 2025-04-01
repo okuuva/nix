@@ -46,6 +46,7 @@
         pkgs.nushell
         pkgs.page
         pkgs.prettierd
+        pkgs.qmk
         pkgs.ripgrep
         pkgs.rustc
         pkgs.shellcheck
