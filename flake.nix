@@ -94,6 +94,7 @@
         enable = true;
         brews = [
           "mas"
+          "coreutils" # homebrew version doesn't shadow the builtin commands
           # pyenv-build deps
           "openssl"
           "readline"
