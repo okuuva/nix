@@ -44,6 +44,7 @@
         pkgs.nix-search-cli
         pkgs.nodejs_22
         pkgs.nushell
+        pkgs.page
         pkgs.prettierd
         pkgs.ripgrep
         pkgs.rustc
