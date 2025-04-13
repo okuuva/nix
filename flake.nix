@@ -114,6 +114,7 @@
         ];
         casks = [
           "1password" # regular package does not work on Darwin
+          "beeper"
           "bettertouchtool"
           "ghostty"
           "google-drive"
