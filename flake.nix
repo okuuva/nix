@@ -6,7 +6,15 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
-    mise.url = "github:jdx/mise?ref=v2025.2.8";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };
+    mise.url = "github:jdx/mise?ref=v2025.3.11";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
   };
 
@@ -15,6 +23,8 @@
     nix-darwin,
     nixpkgs,
     nix-homebrew,
+    homebrew-core,
+    homebrew-cask,
     mise,
   }: let
     configuration = {
@@ -235,6 +245,14 @@
 
             # User owning the Homebrew prefix
             user = "oula";
+
+            # Enable fully-declarative tap management
+            # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
+            taps = {
+              "homebrew/homebrew-core" = homebrew-core;
+              "homebrew/homebrew-cask" = homebrew-cask;
+            };
+            mutableTaps = false;
           };
         }
       ];
