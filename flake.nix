@@ -95,13 +95,22 @@
         brews = [
           "mas"
           "coreutils" # homebrew version doesn't shadow the builtin commands
+          # nvim deps
+          "sqlite3"
+          "zlib"
           # pyenv-build deps
           "openssl"
           "readline"
-          "sqlite3" # also needed by nvim
+          "sqlite3"
           "xz"
-          "zlib" # also needed by nvim (I think)
+          "zlib"
           "tcl-tk@8"
+          # ruby-build deps
+          "openssl@3"
+          "readline"
+          "libyaml"
+          "gmp"
+          "autoconf"
         ];
         casks = [
           "1password" # regular package does not work on Darwin
