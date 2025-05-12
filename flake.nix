@@ -14,7 +14,7 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    mise.url = "github:jdx/mise?ref=v2025.3.11";
+    mise.url = "github:jdx/mise?ref=v2025.4.12";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
   };
 
