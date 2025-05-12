@@ -71,6 +71,7 @@
         pkgs.starship
         pkgs.stylua
         pkgs.tectonic
+        pkgs.tldr
         pkgs.tmux
         pkgs.tree-sitter
         pkgs.uv
