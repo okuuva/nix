@@ -55,6 +55,7 @@
         pkgs.mkalias
         pkgs.neovim
         pkgs.nix-search-cli
+        pkgs.nixd # nix lsp
         pkgs.nodejs_22
         pkgs.nushell
         pkgs.page
