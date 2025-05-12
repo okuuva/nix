@@ -128,6 +128,7 @@
           "1password" # regular package does not work on Darwin
           "beeper"
           "bettertouchtool"
+          "chatterino"
           "ghostty"
           "google-drive"
           "iina"
