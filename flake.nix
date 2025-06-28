@@ -168,6 +168,8 @@
         reattach = true;
       };
 
+      system.primaryUser = "oula";
+
       system.defaults = {
         controlcenter.BatteryShowPercentage = true;
         dock = {
