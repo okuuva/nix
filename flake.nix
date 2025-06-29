@@ -142,7 +142,7 @@
           "vivaldi"
           "choosy"
           "discord"
-          "docker"
+          "docker-desktop"
         ];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
