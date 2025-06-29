@@ -138,7 +138,7 @@
           "raycast"
           "signal"
           "uhk-agent"
-          "zen-browser"
+          "zen"
 
           "choosy"
           "cursor"
