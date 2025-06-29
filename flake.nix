@@ -141,11 +141,9 @@
           "zen"
 
           "choosy"
-          "cursor"
+          "discord"
           "docker"
           "google-chrome" # regular package has trouble integrating with 1password
-          "slack" # regular package does not download
-          "whatsapp" # regular package does not download
         ];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
