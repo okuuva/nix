@@ -105,7 +105,6 @@
       homebrew = {
         enable = true;
         brews = [
-          "mas"
           "coreutils" # homebrew version doesn't shadow the builtin commands
           # nvim deps
           "sqlite3"
@@ -147,10 +146,6 @@
           "slack" # regular package does not download
           "whatsapp" # regular package does not download
         ];
-        masApps = {
-          # "E-kirjasto" = 6471490203;
-          "Tailscale" = 1475387142;
-        };
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
         onActivation.upgrade = true;
