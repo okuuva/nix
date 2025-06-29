@@ -139,10 +139,10 @@
           "signal"
           "zen"
 
+          "vivaldi"
           "choosy"
           "discord"
           "docker"
-          "google-chrome" # regular package has trouble integrating with 1password
         ];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
