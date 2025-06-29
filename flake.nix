@@ -105,6 +105,7 @@
 
       homebrew = {
         enable = true;
+        taps = builtins.attrNames config.nix-homebrew.taps;
         brews = [
           "coreutils" # homebrew version doesn't shadow the builtin commands
           # nvim deps
