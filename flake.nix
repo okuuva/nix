@@ -137,7 +137,6 @@
           "podman-desktop"
           "raycast"
           "signal"
-          "uhk-agent"
           "zen"
 
           "choosy"
