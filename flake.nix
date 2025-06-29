@@ -160,11 +160,6 @@
         pkgs.nerd-fonts.jetbrains-mono
       ];
 
-      # Automatically install rosetta
-      system.activationScripts.extraActivation.text = ''
-        softwareupdate --install-rosetta --agree-to-license
-      '';
-
       security.pam.services.sudo_local = {
         # Allow using TouchID and Apple Watch for sudo
         touchIdAuth = true;
