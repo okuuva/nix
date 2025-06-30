@@ -43,6 +43,7 @@
         pkgs.fd
         pkgs.fish
         pkgs.fzf
+        pkgs.gh
         pkgs.ghostscript_headless
         pkgs.git
         pkgs.glow
