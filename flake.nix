@@ -16,6 +16,9 @@
     };
     mise.url = "github:jdx/mise?ref=v2025.6.8";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
+
+    # TODO: go back to unstable once pageup/down is fixed _again_
+    jjui.url = "github:NixOS/nixpkgs/7b11c30dad895c0e18ffa60c02c64fc0e89b5723";
   };
 
   outputs = inputs @ {
@@ -26,6 +29,7 @@
     homebrew-core,
     homebrew-cask,
     mise,
+    jjui,
   }: let
     configuration = {
       pkgs,
@@ -54,6 +58,7 @@
         pkgs.gnutar
         pkgs.go
         pkgs.imagemagick
+        jjui.jjui
         pkgs.jujutsu
         pkgs.k9s
         pkgs.kubectx

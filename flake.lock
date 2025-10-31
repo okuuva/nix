@@ -67,6 +67,22 @@
         "type": "github"
       }
     },
+    "jjui": {
+      "locked": {
+        "lastModified": 1760990119,
+        "narHash": "sha256-J7RpCX9Vx7soIpEE8ucuz/i0fAR4n2dlk2/PWNm7ShY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7b11c30dad895c0e18ffa60c02c64fc0e89b5723",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "7b11c30dad895c0e18ffa60c02c64fc0e89b5723",
+        "type": "github"
+      }
+    },
     "mise": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -147,6 +163,7 @@
       "inputs": {
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
+        "jjui": "jjui",
         "mise": "mise",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
