@@ -36,10 +36,13 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages = [
         pkgs.alejandra # nix linter
+        pkgs.bat
         pkgs.btop
         pkgs.carapace
         pkgs.cargo
         pkgs.curl
+        pkgs.delta
+        pkgs.diffnav
         pkgs.fd
         pkgs.fish
         pkgs.fzf
@@ -47,9 +50,13 @@
         pkgs.ghostscript_headless
         pkgs.git
         pkgs.glow
+        pkgs.gnupg
         pkgs.gnutar
         pkgs.go
         pkgs.imagemagick
+        pkgs.jujutsu
+        pkgs.k9s
+        pkgs.kubectx
         pkgs.lazygit
         pkgs.lsd
         pkgs.mermaid-cli
@@ -61,8 +68,10 @@
         pkgs.nodejs_22
         pkgs.nushell
         pkgs.page
+        pkgs.parallel
         pkgs.pngpaste
         pkgs.prettierd
+        pkgs.pwgen
         pkgs.qmk
         pkgs.ripgrep
         pkgs.rustc
@@ -71,6 +80,7 @@
         pkgs.shfmt
         pkgs.sqlite
         pkgs.starship
+        pkgs.stern
         pkgs.stylua
         pkgs.tectonic
         pkgs.tldr
@@ -79,11 +89,13 @@
         pkgs.uv
         pkgs.wget
         pkgs.yq
+        pkgs.zellij
         pkgs.zoxide
 
         # mac only
         pkgs.pam-reattach
         pkgs.pam-watchid
+        pkgs.syncthing-macos
         pkgs.reattach-to-user-namespace
 
         pkgs._1password-cli
@@ -94,8 +106,12 @@
         pkgs.lua51Packages.lua
         pkgs.luajitPackages.luarocks
 
+        pkgs.python312
         pkgs.python312Packages.pylatexenc
         pkgs.python312Packages.pynvim
+
+        # work stuff
+        pkgs.vscode
 
         mise.packages.aarch64-darwin.mise
       ];
@@ -133,18 +149,23 @@
           "chatterino"
           "ghostty"
           "google-drive"
+          "helium-browser"
           "iina"
           "legcord"
           "obsidian"
           "podman-desktop"
           "raycast"
           "signal"
+          "tailscale-app" # tailscale recommend using this instead of the appstore version
+          "updf"
           "zen"
 
-          "vivaldi"
+          "bruno"
           "choosy"
           "discord"
           "docker-desktop"
+          "vivaldi"
+          "zoom"
         ];
         onActivation.cleanup = "zap";
         onActivation.autoUpdate = true;
