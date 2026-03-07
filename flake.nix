@@ -14,7 +14,7 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    mise.url = "github:jdx/mise?ref=v2025.11.3";
+    mise.url = "github:jdx/mise?ref=v2026.2.24";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
 
     # TODO: go back to unstable once pageup/down is fixed _again_
