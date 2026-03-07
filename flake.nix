@@ -47,7 +47,6 @@
         pkgs.bat
         pkgs.btop
         pkgs.carapace
-        pkgs.cargo
         pkgs.curl
         pkgs.delta
         pkgs.diffnav
@@ -83,7 +82,7 @@
         pkgs.pwgen
         pkgs.qmk
         pkgs.ripgrep
-        pkgs.rustc
+        pkgs.rustup
         pkgs.shellcheck
         pkgs.shellharden
         pkgs.shfmt
