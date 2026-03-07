@@ -22,6 +22,10 @@
       url = "github:neurosnap/homebrew-tap";
       flake = false;
     };
+    zsm-tap = {
+      url = "github:mdsakalu/homebrew-tap";
+      flake = false;
+    };
     rift-tap = {
       url = "github:acsandmann/homebrew-tap";
       flake = false;
@@ -42,6 +46,7 @@
     homebrew-cask,
     fuse-t-cask,
     zmx-tap,
+    zsm-tap,
     rift-tap,
     mise,
     jjui,
@@ -149,6 +154,7 @@
         brews = [
           "coreutils" # homebrew version doesn't shadow the builtin commands
           "zmx" # zig does not play ball with nix-darwin
+          "zsm" # zmx session manager
           "rift" # only available for macos
           # nvim deps
           "sqlite3"
@@ -288,6 +294,7 @@
               "homebrew/homebrew-cask" = homebrew-cask;
               "macos-fuse-t/homebrew-cask" = fuse-t-cask;
               "neurosnap/homebrew-tap" = zmx-tap;
+              "mdsakalu/homebrew-tap" = zsm-tap;
               "acsandmann/homebrew-tap" = rift-tap;
             };
             mutableTaps = false;
