@@ -201,7 +201,8 @@
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
-        "rift-tap": "rift-tap"
+        "rift-tap": "rift-tap",
+        "zmx-tap": "zmx-tap"
       }
     },
     "systems": {
@@ -216,6 +217,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "zmx-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772596244,
+        "narHash": "sha256-ArPgw4SiNatHS1RRDPfj2Y270uxe+GqTzKTSP/+/OtI=",
+        "owner": "neurosnap",
+        "repo": "homebrew-tap",
+        "rev": "5359df95d89938709793f930bd5da6c881d7065d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "neurosnap",
+        "repo": "homebrew-tap",
         "type": "github"
       }
     }
