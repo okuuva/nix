@@ -35,6 +35,22 @@
         "type": "github"
       }
     },
+    "fuse-t-cask": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754718280,
+        "narHash": "sha256-zjZnQHCI6HvzOZGPfj7qMzLYVeLMpjJgv/LMCcVx97E=",
+        "owner": "macos-fuse-t",
+        "repo": "homebrew-cask",
+        "rev": "422fabd4154deef41b2e8e9a57d763f0bf1a444f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "macos-fuse-t",
+        "repo": "homebrew-cask",
+        "type": "github"
+      }
+    },
     "homebrew-cask": {
       "flake": false,
       "locked": {
@@ -161,6 +177,7 @@
     },
     "root": {
       "inputs": {
+        "fuse-t-cask": "fuse-t-cask",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
         "jjui": "jjui",

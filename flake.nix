@@ -14,6 +14,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    fuse-t-cask = {
+      url = "github:macos-fuse-t/homebrew-cask";
+      flake = false;
+    };
     mise.url = "github:jdx/mise?ref=v2026.2.24";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
 
@@ -28,6 +32,7 @@
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
+    fuse-t-cask,
     mise,
     jjui,
   }: let
@@ -155,6 +160,8 @@
           "beeper"
           "bettertouchtool"
           "chatterino"
+          "fuse-t"
+          "fuse-t-sshfs"
           "ghostty"
           "google-drive"
           "helium-browser"
@@ -267,6 +274,7 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "macos-fuse-t/homebrew-cask" = fuse-t-cask;
             };
             mutableTaps = false;
           };
