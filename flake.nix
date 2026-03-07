@@ -31,6 +31,10 @@
     mise,
     jjui,
   }: let
+    jjui-pkgs = import jjui {
+      system = "aarch64-darwin";
+      config.allowUnfree = true;
+    };
     configuration = {
       pkgs,
       config,
@@ -58,7 +62,7 @@
         pkgs.gnutar
         pkgs.go
         pkgs.imagemagick
-        jjui.jjui
+        jjui-pkgs.jjui
         pkgs.jujutsu
         pkgs.k9s
         pkgs.kubectx
