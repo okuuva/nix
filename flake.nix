@@ -18,6 +18,10 @@
       url = "github:macos-fuse-t/homebrew-cask";
       flake = false;
     };
+    rift-tap = {
+      url = "github:acsandmann/homebrew-tap";
+      flake = false;
+    };
     mise.url = "github:jdx/mise?ref=v2026.2.24";
     mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
 
@@ -33,6 +37,7 @@
     homebrew-core,
     homebrew-cask,
     fuse-t-cask,
+    rift-tap,
     mise,
     jjui,
   }: let
@@ -138,6 +143,7 @@
         taps = builtins.attrNames config.nix-homebrew.taps;
         brews = [
           "coreutils" # homebrew version doesn't shadow the builtin commands
+          "rift" # only available for macos
           # nvim deps
           "sqlite3"
           "zlib"
@@ -275,6 +281,7 @@
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "macos-fuse-t/homebrew-cask" = fuse-t-cask;
+              "acsandmann/homebrew-tap" = rift-tap;
             };
             mutableTaps = false;
           };

@@ -175,6 +175,22 @@
         "type": "github"
       }
     },
+    "rift-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772545829,
+        "narHash": "sha256-0MWSfKfjvYRnK/454uujK6AriDysdLLmVs5gJHKfHV8=",
+        "owner": "acsandmann",
+        "repo": "homebrew-tap",
+        "rev": "1841f611b221a5a69e534332e987930c073a5aa4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "acsandmann",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "fuse-t-cask": "fuse-t-cask",
@@ -184,7 +200,8 @@
         "mise": "mise",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "rift-tap": "rift-tap"
       }
     },
     "systems": {
