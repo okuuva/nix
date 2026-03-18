@@ -79,7 +79,6 @@
         pkgs.glow
         pkgs.gnupg
         pkgs.gnutar
-        pkgs.go
         pkgs.imagemagick
         jjui-pkgs.jjui
         pkgs.jujutsu
