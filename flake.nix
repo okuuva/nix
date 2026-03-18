@@ -255,6 +255,11 @@
       programs.fish.enable = true;
       programs.zsh.enable = true;
 
+      users.users.oula = {
+        home = "/Users/oula";
+        shell = pkgs.fish;
+      };
+
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
