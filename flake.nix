@@ -183,6 +183,7 @@
           "google-drive"
           "helium-browser"
           "iina"
+          "karabiner-elements"
           "legcord"
           "obsidian"
           "podman-desktop"
