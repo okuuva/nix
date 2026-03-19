@@ -224,11 +224,11 @@
     "zmx-tap": {
       "flake": false,
       "locked": {
-        "lastModified": 1772596244,
-        "narHash": "sha256-ArPgw4SiNatHS1RRDPfj2Y270uxe+GqTzKTSP/+/OtI=",
+        "lastModified": 1773885796,
+        "narHash": "sha256-B6pVZae6lnjRBMfrbpBrxoItCclUT8+WJeXcKY5WM1g=",
         "owner": "neurosnap",
         "repo": "homebrew-tap",
-        "rev": "5359df95d89938709793f930bd5da6c881d7065d",
+        "rev": "89ba44acd5ea60f5786f6080a1e1eaf72d8795fe",
         "type": "github"
       },
       "original": {
