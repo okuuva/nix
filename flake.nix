@@ -140,7 +140,7 @@
         # work stuff
         pkgs.vscode
 
-        mise.packages.${pkgs.system}.mise
+        mise.packages.${pkgs.stdenv.hostPlatform.system}.mise
       ];
 
       environment.variables = {
