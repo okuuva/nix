@@ -88,6 +88,7 @@
         lsd
         mermaid-cli
         mkalias
+        moor
         neovim
         nix-search-cli
         nix-your-shell
