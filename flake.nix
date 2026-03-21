@@ -62,85 +62,85 @@
     }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages = [
-        pkgs.alejandra # nix linter
-        pkgs.bat
-        pkgs.btop
-        pkgs.carapace
-        pkgs.curl
-        pkgs.delta
-        pkgs.diffnav
-        pkgs.fd
-        pkgs.fish
-        pkgs.fzf
-        pkgs.gh
-        pkgs.ghostscript_headless
-        pkgs.git
-        pkgs.glow
-        pkgs.gnupg
-        pkgs.gnutar
-        pkgs.imagemagick
+      environment.systemPackages = with pkgs; [
+        alejandra # nix linter
+        bat
+        btop
+        carapace
+        curl
+        delta
+        diffnav
+        fd
+        fish
+        fzf
+        gh
+        ghostscript_headless
+        git
+        glow
+        gnupg
+        gnutar
+        imagemagick
         jjui-pkgs.jjui
-        pkgs.jujutsu
-        pkgs.k9s
-        pkgs.kubectx
-        pkgs.lazygit
-        pkgs.lsd
-        pkgs.mermaid-cli
-        pkgs.mkalias
-        pkgs.neovim
-        pkgs.nix-search-cli
-        pkgs.nix-your-shell
-        pkgs.nixd # nix lsp
-        pkgs.nodejs_22
-        pkgs.nushell
-        pkgs.page
-        pkgs.parallel
-        pkgs.pngpaste
-        pkgs.prettierd
-        pkgs.pwgen
-        pkgs.qmk
-        pkgs.ripgrep
-        pkgs.rustup
-        pkgs.shellcheck
-        pkgs.shellharden
-        pkgs.shfmt
-        pkgs.sqlite
-        pkgs.starship
-        pkgs.stern
-        pkgs.stylua
-        pkgs.tectonic
-        pkgs.tldr
-        pkgs.tmux
-        pkgs.tree-sitter
-        pkgs.uv
-        pkgs.wget
-        pkgs.yq
-        pkgs.zellij
-        pkgs.zoxide
+        jujutsu
+        k9s
+        kubectx
+        lazygit
+        lsd
+        mermaid-cli
+        mkalias
+        neovim
+        nix-search-cli
+        nix-your-shell
+        nixd # nix lsp
+        nodejs_22
+        nushell
+        page
+        parallel
+        pngpaste
+        prettierd
+        pwgen
+        qmk
+        ripgrep
+        rustup
+        shellcheck
+        shellharden
+        shfmt
+        sqlite
+        starship
+        stern
+        stylua
+        tectonic
+        tldr
+        tmux
+        tree-sitter
+        uv
+        wget
+        yq
+        zellij
+        zoxide
 
         # mac only
-        pkgs.pam-reattach
-        pkgs.pam-watchid
-        pkgs.syncthing-macos
-        pkgs.reattach-to-user-namespace
+        pam-reattach
+        pam-watchid
+        syncthing-macos
+        reattach-to-user-namespace
 
-        pkgs._1password-cli
-        # pkgs._1password-gui
-        # pkgs.obsidian  # stopped working because dmg upacking fails:
+        _1password-cli
+        # _1password-gui
+        # obsidian  # stopped working because dmg upacking fails:
         # https://discourse.nixos.org/t/help-with-error-only-hfs-file-systems-are-supported-on-ventura/25873/7
 
-        pkgs.lua51Packages.lua
-        pkgs.luajitPackages.luarocks
+        lua51Packages.lua
+        luajitPackages.luarocks
 
-        pkgs.python312
-        pkgs.python312Packages.pylatexenc
-        pkgs.python312Packages.pynvim
+        python312
+        python312Packages.pylatexenc
+        python312Packages.pynvim
 
         # work stuff
-        pkgs.vscode
+        vscode
 
-        mise.packages.${pkgs.stdenv.hostPlatform.system}.mise
+        mise.packages.${stdenv.hostPlatform.system}.mise
       ];
 
       environment.variables = {
