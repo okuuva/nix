@@ -111,6 +111,7 @@
         stern
         stylua
         tectonic
+        television
         tldr
         tmux
         tree-sitter
