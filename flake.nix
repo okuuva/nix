@@ -30,11 +30,10 @@
       url = "github:acsandmann/homebrew-tap";
       flake = false;
     };
-    # TODO: go back to unstable once pageup/down is fixed _again_
-    jjui.url = "github:NixOS/nixpkgs/7b11c30dad895c0e18ffa60c02c64fc0e89b5723";
-
+    # TODO: go back to unstable once direnv starts behaving again
+    mise-nixpkgs.url = "github:NixOS/nixpkgs/16c7794d0a28b5a37904d55bcca36003b9109aaa";
     mise.url = "github:jdx/mise?ref=v2026.2.24";
-    mise.inputs.nixpkgs.follows = "jjui"; # the default rustc is too old
+    mise.inputs.nixpkgs.follows = "mise-nixpkgs"; # the default rustc is too old
   };
 
   outputs = inputs @ {
@@ -49,12 +48,8 @@
     zsm-tap,
     rift-tap,
     mise,
-    jjui,
+    mise-nixpkgs,
   }: let
-    jjui-pkgs = import jjui {
-      system = "aarch64-darwin";
-      config.allowUnfree = true;
-    };
     configuration = {
       pkgs,
       config,
@@ -80,7 +75,7 @@
         gnupg
         gnutar
         imagemagick
-        jjui-pkgs.jjui
+        jjui
         jujutsu
         k9s
         kubectx
