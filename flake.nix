@@ -30,11 +30,11 @@
       url = "github:acsandmann/homebrew-tap";
       flake = false;
     };
-    mise.url = "github:jdx/mise?ref=v2026.2.24";
-    mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
-
     # TODO: go back to unstable once pageup/down is fixed _again_
     jjui.url = "github:NixOS/nixpkgs/7b11c30dad895c0e18ffa60c02c64fc0e89b5723";
+
+    mise.url = "github:jdx/mise?ref=v2026.2.24";
+    mise.inputs.nixpkgs.follows = "jjui"; # the default rustc is too old
   };
 
   outputs = inputs @ {
