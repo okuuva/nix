@@ -78,6 +78,7 @@
         jjui
         jujutsu
         k9s
+        kanata-with-cmd
         kubectx
         lazygit
         lsd
@@ -238,6 +239,21 @@
           AppleInterfaceStyle = "Dark";
           InitialKeyRepeat = 20;
           KeyRepeat = 2;
+        };
+      };
+
+      launchd.daemons.kanata = {
+        serviceConfig = {
+          Label = "com.jtroo.kanata";
+          ProgramArguments = [
+            "/run/current-system/sw/bin/kanata"
+            "--cfg"
+            "/Users/oula/gits/dotfiles/kanata/kanata.kbd"
+          ];
+          RunAtLoad = true;
+          KeepAlive = true;
+          StandardOutPath = "/tmp/kanata.stdout.log";
+          StandardErrorPath = "/tmp/kanata.stderr.log";
         };
       };
 
