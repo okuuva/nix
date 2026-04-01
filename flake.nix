@@ -174,6 +174,7 @@
           "1password" # regular package does not work on Darwin
           "beeper"
           "bettertouchtool"
+          "captin"
           "chatterino"
           "fuse-t"
           "fuse-t-sshfs"
