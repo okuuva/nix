@@ -183,6 +183,7 @@
           "helium-browser"
           "iina"
           "karabiner-elements"
+          "kitty" # need to install the cask to get the quake terminal keyboard shortcut working
           "legcord"
           "obsidian"
           "podman-desktop"
