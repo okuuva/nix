@@ -113,7 +113,6 @@
         tmux
         uv
         wget
-        yq
         zellij
         zoxide
 
