@@ -89,6 +89,7 @@
         nix-search-cli
         nix-your-shell
         nixd # nix lsp
+        nmap
         nodejs_22
         nushell
         page
