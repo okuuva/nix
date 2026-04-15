@@ -111,7 +111,6 @@
         television
         tldr
         tmux
-        tree-sitter
         uv
         wget
         yq
@@ -131,6 +130,7 @@
 
         lua51Packages.lua
         luajitPackages.luarocks
+        luajitPackages.tree-sitter-cli
 
         python312
         python312Packages.pylatexenc
