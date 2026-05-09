@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "anylinuxfs-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1777994731,
+        "narHash": "sha256-sP7gaqixw7OBr+CX+xxbnPi5G8H9uknfOBhD1VsPquA=",
+        "owner": "nohajc",
+        "repo": "homebrew-anylinuxfs",
+        "rev": "94a4f248299ae213413d9971ed9bae9c9dabb1be",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nohajc",
+        "repo": "homebrew-anylinuxfs",
+        "type": "github"
+      }
+    },
     "brew-src": {
       "flake": false,
       "locked": {
@@ -193,6 +209,7 @@
     },
     "root": {
       "inputs": {
+        "anylinuxfs-tap": "anylinuxfs-tap",
         "fuse-t-cask": "fuse-t-cask",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",

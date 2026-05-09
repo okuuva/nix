@@ -30,6 +30,10 @@
       url = "github:acsandmann/homebrew-tap";
       flake = false;
     };
+    anylinuxfs-tap = {
+      url = "github:nohajc/homebrew-anylinuxfs";
+      flake = false;
+    };
     # TODO: go back to unstable once direnv starts behaving again
     mise-nixpkgs.url = "github:NixOS/nixpkgs/16c7794d0a28b5a37904d55bcca36003b9109aaa";
     mise.url = "github:jdx/mise?ref=v2026.4.5";
@@ -47,6 +51,7 @@
     zmx-tap,
     zsm-tap,
     rift-tap,
+    anylinuxfs-tap,
     mise,
     mise-nixpkgs,
   }: let
@@ -150,9 +155,15 @@
         taps = builtins.attrNames config.nix-homebrew.taps;
         brews = [
           "coreutils" # homebrew version doesn't shadow the builtin commands
+          # only available for macos
           "zmx" # zig does not play ball with nix-darwin
           "zsm" # zmx session manager
-          "rift" # only available for macos
+          "anylinuxfs"
+          "rift"
+          # anylinuxfs deps
+          "libunistring"
+          "gettext"
+          "util-linux"
           # nvim deps
           "sqlite3"
           "zlib"
@@ -316,6 +327,7 @@
               "neurosnap/homebrew-tap" = zmx-tap;
               "mdsakalu/homebrew-tap" = zsm-tap;
               "acsandmann/homebrew-tap" = rift-tap;
+              "nohajc/homebrew-tap" = anylinuxfs-tap;
             };
             mutableTaps = false;
           };
