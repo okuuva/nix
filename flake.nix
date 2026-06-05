@@ -36,7 +36,7 @@
     };
     # TODO: go back to unstable once direnv starts behaving again
     mise-nixpkgs.url = "github:NixOS/nixpkgs/16c7794d0a28b5a37904d55bcca36003b9109aaa";
-    mise.url = "github:jdx/mise?ref=v2026.4.5";
+    mise.url = "github:jdx/mise?ref=v2026.6.1";
     mise.inputs.nixpkgs.follows = "mise-nixpkgs"; # the default rustc is too old
   };
 
