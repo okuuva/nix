@@ -31,8 +31,6 @@
       url = "github:nohajc/homebrew-anylinuxfs";
       flake = false;
     };
-    mise.url = "github:jdx/mise?ref=v2026.6.1";
-    mise.inputs.nixpkgs.follows = "nixpkgs"; # the default rustc is too old
   };
 
   outputs = inputs @ {
@@ -47,7 +45,6 @@
     zmx-tap,
     rift-tap,
     anylinuxfs-tap,
-    mise,
   }: let
     configuration = {
       pkgs,
@@ -149,7 +146,6 @@
         vscode
 
         nix-auth.packages.${stdenv.hostPlatform.system}.default
-        mise.packages.${stdenv.hostPlatform.system}.mise
       ];
 
       environment.variables = {
