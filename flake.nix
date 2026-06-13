@@ -98,6 +98,7 @@
         nixd # nix lsp
         nmap
         nodejs_22
+        nufmt
         nushell
         page
         parallel
