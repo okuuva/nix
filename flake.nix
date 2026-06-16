@@ -6,6 +6,7 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
+    nix-auth.url = "github:numtide/nix-auth";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -38,6 +39,7 @@
     self,
     nix-darwin,
     nixpkgs,
+    nix-auth,
     nix-homebrew,
     homebrew-core,
     homebrew-cask,
@@ -146,6 +148,7 @@
         # work stuff
         vscode
 
+        nix-auth.packages.${stdenv.hostPlatform.system}.default
         mise.packages.${stdenv.hostPlatform.system}.mise
       ];
 
