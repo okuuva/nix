@@ -5,10 +5,18 @@
   inputs,
   ...
 }: {
-  options.my.kanata.configPath = lib.mkOption {
-    type = lib.types.str;
-    default = "${config.my.user.home}/gits/dotfiles/kanata/kanata.kbd";
-    description = "Path to the Kanata keyboard configuration for this host.";
+  options.my.kanata = {
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+      description = "Whether to run Kanata as a launchd daemon.";
+    };
+
+    configPath = lib.mkOption {
+      type = lib.types.str;
+      default = "${config.my.user.home}/gits/dotfiles/kanata/kanata.kbd";
+      description = "Path to the Kanata keyboard configuration for this host.";
+    };
   };
 
   config = {
@@ -63,7 +71,7 @@
       };
     };
 
-    launchd.daemons.kanata = {
+    launchd.daemons.kanata = lib.mkIf config.my.kanata.enable {
       serviceConfig = {
         Label = "com.jtroo.kanata";
         ProgramArguments = [
