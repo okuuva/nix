@@ -7,6 +7,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     nix-auth.url = "github:numtide/nix-auth";
+    hunk.url = "github:modem-dev/hunk/v0.16.0";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
       flake = false;
@@ -39,6 +40,7 @@
     nixpkgs,
     nix-auth,
     nix-homebrew,
+    hunk,
     homebrew-core,
     homebrew-cask,
     fuse-t-cask,
@@ -146,6 +148,7 @@
         vscode
 
         nix-auth.packages.${stdenv.hostPlatform.system}.default
+        hunk.packages.${stdenv.hostPlatform.system}.default
       ];
 
       environment.variables = {
