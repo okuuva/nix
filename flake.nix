@@ -1,5 +1,5 @@
 {
-  description = "My nix-darwin system flake";
+  description = "My Nix system flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -35,307 +35,55 @@
   };
 
   outputs = inputs @ {
-    self,
     nix-darwin,
     nixpkgs,
-    nix-auth,
     nix-homebrew,
-    hunk,
-    homebrew-core,
-    homebrew-cask,
-    fuse-t-cask,
-    zmx-tap,
-    rift-tap,
-    anylinuxfs-tap,
+    ...
   }: let
-    configuration = {
-      pkgs,
-      config,
-      ...
-    }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages = with pkgs; [
-        alejandra # nix linter
-        bat
-        btop
-        carapace
-        curl
-        delta
-        diffnav
-        fd
-        fish
-        fzf
-        gh
-        ghostscript_headless
-        git
-        glow
-        gnupg
-        gnutar
-        imagemagick
-        (jjui.overrideAttrs (old: rec {
-          version = "0.10.2";
-          src = fetchFromGitHub {
-            owner = "idursun";
-            repo = "jjui";
-            tag = "v${version}";
-            hash = "sha256-VTaOd5LSBxo6EhTyjoyAqX+wTEcm88qIgUCcd+TRYY4=";
-          };
-          vendorHash = "sha256-GDYgZI6X7UwnyKXOJVmqXXtm4ulA10uuX5MeqKVTheA=";
-          ldflags = ["-X main.Version=${version}"];
-        }))
-        jujutsu
-        k9s
-        kanata-with-cmd
-        kubectx
-        lazygit
-        lsd
-        mermaid-cli
-        mkalias
-        moor
-        neovim
-        nix-search-cli
-        nix-your-shell
-        nixd # nix lsp
-        nmap
-        nodejs_22
-        nufmt
-        nushell
-        page
-        parallel
-        pngpaste
-        prettierd
-        pwgen
-        qmk
-        ripgrep
-        rustup
-        shellcheck
-        shellharden
-        shfmt
-        sqlite
-        starship
-        stern
-        stylua
-        tectonic
-        television
-        tldr
-        tmux
-        uv
-        wget
-        zellij
-        zoxide
+    inherit (nixpkgs) lib;
 
-        # mac only
-        pam-reattach
-        pam-watchid
-        syncthing-macos
-        reattach-to-user-namespace
+    specialArgs = {inherit inputs;};
 
-        _1password-cli
-        # _1password-gui
-        # obsidian  # stopped working because dmg upacking fails:
-        # https://discourse.nixos.org/t/help-with-error-only-hfs-file-systems-are-supported-on-ventura/25873/7
+    darwinHostFiles = builtins.readDir ./hosts/darwin;
+    darwinHostNames =
+      builtins.map
+      (name: lib.removeSuffix ".nix" name)
+      (builtins.filter
+        (name: darwinHostFiles.${name} == "regular" && lib.hasSuffix ".nix" name)
+        (builtins.attrNames darwinHostFiles));
 
-        lua51Packages.lua
-        luajitPackages.luarocks
-        luajitPackages.tree-sitter-cli
-
-        python312
-        python312Packages.pylatexenc
-        python312Packages.pynvim
-
-        # work stuff
-        vscode
-
-        nix-auth.packages.${stdenv.hostPlatform.system}.default
-        hunk.packages.${stdenv.hostPlatform.system}.default
-      ];
-
-      environment.variables = {
-        EDITOR = "nvim";
-      };
-
-      homebrew = {
-        enable = true;
-        taps = builtins.attrNames config.nix-homebrew.taps;
-        brews = [
-          "coreutils" # homebrew version doesn't shadow the builtin commands
-          # only available for macos
-          # "zmx" # zig does not play ball with nix-darwin
-          "anylinuxfs"
-          "rift"
-          # anylinuxfs deps
-          "libunistring"
-          "gettext"
-          "util-linux"
-          # nvim deps
-          "sqlite3"
-          "zlib"
-          # pyenv-build deps
-          "openssl"
-          "readline"
-          "sqlite3"
-          "xz"
-          "zlib"
-          "tcl-tk@8"
-          # ruby-build deps
-          "openssl@3"
-          "readline"
-          "libyaml"
-          "gmp"
-          "autoconf"
+    mkDarwinHost = hostModule:
+      nix-darwin.lib.darwinSystem {
+        inherit specialArgs;
+        modules = [
+          ./modules/common
+          ./modules/darwin
+          nix-homebrew.darwinModules.nix-homebrew
+          ./modules/darwin/homebrew.nix
+          hostModule
         ];
-        casks = [
-          "1password" # regular package does not work on Darwin
-          "beeper"
-          "bettertouchtool"
-          "captin"
-          "chatterino"
-          "fuse-t"
-          "fuse-t-sshfs"
-          "ghostty"
-          "google-drive"
-          "helium-browser"
-          "iina"
-          "karabiner-elements"
-          "kitty" # need to install the cask to get the quake terminal keyboard shortcut working
-          "legcord"
-          "obsidian"
-          "podman-desktop"
-          "raycast"
-          "signal"
-          "tailscale-app" # tailscale recommend using this instead of the appstore version
-          "updf"
-          "zen"
-
-          "bruno"
-          "choosy"
-          "discord"
-          "docker-desktop"
-          "vivaldi"
-          "zoom"
-        ];
-        onActivation.cleanup = "zap";
-        onActivation.autoUpdate = true;
-        onActivation.upgrade = true;
       };
 
-      fonts.packages = [
-        pkgs.nerd-fonts.jetbrains-mono
-      ];
-
-      security.pam.services.sudo_local = {
-        # Allow using TouchID and Apple Watch for sudo
-        touchIdAuth = true;
-        watchIdAuth = true;
-        # Enable them for tmux as well
-        reattach = true;
+    mkNixosHost = {
+      system,
+      modules ? [],
+    }:
+      nixpkgs.lib.nixosSystem {
+        inherit system specialArgs;
+        modules =
+          [
+            ./modules/common
+            ./modules/nixos
+          ]
+          ++ modules;
       };
-
-      system.primaryUser = "oula";
-
-      system.defaults = {
-        controlcenter.BatteryShowPercentage = true;
-        dock = {
-          autohide = true;
-          mru-spaces = false;
-          persistent-apps = [];
-        };
-        finder = {
-          AppleShowAllExtensions = true;
-          FXPreferredViewStyle = "Nlsv";
-          FXRemoveOldTrashItems = true;
-          NewWindowTarget = "Home";
-          ShowPathbar = true;
-          ShowStatusBar = true;
-          _FXSortFoldersFirst = true;
-        };
-        loginwindow.GuestEnabled = false;
-        NSGlobalDomain = {
-          AppleICUForce24HourTime = true;
-          AppleInterfaceStyle = "Dark";
-          InitialKeyRepeat = 20;
-          KeyRepeat = 2;
-        };
-      };
-
-      launchd.daemons.kanata = {
-        serviceConfig = {
-          Label = "com.jtroo.kanata";
-          ProgramArguments = [
-            "/run/current-system/sw/bin/kanata"
-            "--cfg"
-            "/Users/oula/gits/dotfiles/kanata/kanata.kbd"
-          ];
-          RunAtLoad = true;
-          KeepAlive = true;
-          StandardOutPath = "/tmp/kanata.stdout.log";
-          StandardErrorPath = "/tmp/kanata.stderr.log";
-        };
-      };
-
-      networking = {
-        hostName = "oula-mbp-a2485-work";
-        localHostName = "oula-mbp-a2485-work";
-      };
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-      programs.fish.enable = true;
-      programs.zsh.enable = true;
-
-      users.users.oula = {
-        home = "/Users/oula";
-        shell = pkgs.fish;
-      };
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 5;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
-
-      # allow unfree packages
-      nixpkgs.config.allowUnfree = true;
-    };
   in {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#spiky
-    darwinConfigurations."oula-mbp-a2485-work" = nix-darwin.lib.darwinSystem {
-      modules = [
-        configuration
-        nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            # Install Homebrew under the default prefix
-            enable = true;
-
-            # Apple Silicon Only: Also install Homebrew under the default Intel prefix for Rosetta 2
-            enableRosetta = true;
-
-            # User owning the Homebrew prefix
-            user = "oula";
-
-            # Enable fully-declarative tap management
-            # With mutableTaps disabled, taps can no longer be added imperatively with `brew tap`.
-            taps = {
-              "homebrew/homebrew-core" = homebrew-core;
-              "homebrew/homebrew-cask" = homebrew-cask;
-              "macos-fuse-t/homebrew-cask" = fuse-t-cask;
-              "neurosnap/homebrew-tap" = zmx-tap;
-              "acsandmann/homebrew-tap" = rift-tap;
-              "nohajc/homebrew-tap" = anylinuxfs-tap;
-            };
-            mutableTaps = false;
-          };
-        }
-      ];
+    lib = {
+      inherit mkDarwinHost mkNixosHost;
     };
+
+    # Build darwin flake using:
+    # $ darwin-rebuild build --flake .#<host-file-name>
+    darwinConfigurations = lib.genAttrs darwinHostNames (name: mkDarwinHost ./hosts/darwin/${name}.nix);
   };
 }
