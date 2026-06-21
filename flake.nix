@@ -158,7 +158,7 @@
         brews = [
           "coreutils" # homebrew version doesn't shadow the builtin commands
           # only available for macos
-          "zmx" # zig does not play ball with nix-darwin
+          # "zmx" # zig does not play ball with nix-darwin
           "anylinuxfs"
           "rift"
           # anylinuxfs deps
