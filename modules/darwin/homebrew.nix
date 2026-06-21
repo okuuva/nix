@@ -56,13 +56,6 @@
       "tailscale-app" # tailscale recommend using this instead of the appstore version
       "updf"
       "zen"
-
-      "bruno"
-      "choosy"
-      "discord"
-      "docker-desktop"
-      "vivaldi"
-      "zoom"
     ];
     onActivation.cleanup = "zap";
     onActivation.autoUpdate = true;

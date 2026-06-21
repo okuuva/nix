@@ -1,4 +1,6 @@
 {config, ...}: {
+  imports = [../../modules/darwin/work.nix];
+
   networking = {
     hostName = "oula-mac-mini-a3238-work";
     localHostName = "oula-mac-mini-a3238-work";
