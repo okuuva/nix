@@ -6,7 +6,16 @@
 }: {
   homebrew = {
     enable = true;
-    taps = builtins.attrNames config.nix-homebrew.taps;
+    taps =
+      map
+      (tap:
+        if lib.hasPrefix "homebrew/" tap
+        then tap
+        else {
+          name = tap;
+          trusted = true;
+        })
+      (builtins.attrNames config.nix-homebrew.taps);
     brews = [
       "coreutils" # homebrew version doesn't shadow the builtin commands
       # only available for macos
