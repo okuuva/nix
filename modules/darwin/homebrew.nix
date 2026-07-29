@@ -49,6 +49,7 @@
       "bettertouchtool"
       "captin"
       "chatterino"
+      "fontgoggles"
       "fuse-t"
       "fuse-t-sshfs"
       "ghostty"

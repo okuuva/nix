@@ -34,6 +34,10 @@
 
     fonts.packages = [
       pkgs.nerd-fonts.jetbrains-mono
+      pkgs.nerd-fonts.dejavu-sans-mono
+      pkgs.nerd-fonts.fira-code
+      pkgs.julia-mono
+      pkgs.freefont_ttf
     ];
 
     security.pam.services.sudo_local = {
