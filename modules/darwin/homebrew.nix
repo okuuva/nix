@@ -19,6 +19,7 @@
     brews = [
       "coreutils" # homebrew version doesn't shadow the builtin commands
       # only available for macos
+      "apfel"
       # zmx
       "anylinuxfs"
       "rift"
