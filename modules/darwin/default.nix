@@ -17,20 +17,30 @@
       default = "${config.my.user.home}/gits/dotfiles/kanata/kanata.kbd";
       description = "Path to the Kanata keyboard configuration for this host.";
     };
+
+    signingIdentity = lib.mkOption {
+      type = lib.types.str;
+      default = "Apple Development: oula.kuuva@azsh.fi (WACPWB32RL)";
+      description = "Code-signing identity used for the stable Kanata binary.";
+    };
   };
 
   config = {
     my.user.home = lib.mkDefault "/Users/${config.system.primaryUser}";
 
-    environment.systemPackages = with pkgs; [
-      # mac only
-      mkalias
-      pam-reattach
-      pam-watchid
-      pngpaste
-      syncthing-macos
-      reattach-to-user-namespace
-    ];
+    environment.systemPackages = with pkgs;
+      [
+        # mac only
+        mkalias
+        pam-reattach
+        pam-watchid
+        pngpaste
+        syncthing-macos
+        reattach-to-user-namespace
+      ]
+      ++ lib.optional config.my.kanata.enable (lib.hiPrio (runCommand "kanata-signed" {} ''
+        mkdir -p $out/bin; ln -s /usr/local/libexec/kanata $out/bin/kanata
+      ''));
 
     fonts.packages = [
       pkgs.nerd-fonts.jetbrains-mono
@@ -79,7 +89,7 @@
       serviceConfig = {
         Label = "com.jtroo.kanata";
         ProgramArguments = [
-          "/run/current-system/sw/bin/kanata"
+          "/usr/local/libexec/kanata"
           "--cfg"
           config.my.kanata.configPath
         ];
@@ -88,6 +98,38 @@
         StandardOutPath = "/tmp/kanata.stdout.log";
         StandardErrorPath = "/tmp/kanata.stderr.log";
       };
+    };
+
+    system.activationScripts = lib.mkIf config.my.kanata.enable {
+      preActivation.text = ''
+        kanata=/usr/local/libexec/kanata
+        kanataPackage=${pkgs.kanata-with-cmd}
+        kanataIdentity=${lib.escapeShellArg config.my.kanata.signingIdentity}
+        kanataChanged=false
+
+        mkdir -p /usr/local/libexec
+        if [[ ! -x "$kanata" ]] \
+          || [[ "$(cat "$kanata.package" 2>/dev/null || true)" != "$kanataPackage:$kanataIdentity" ]]; then
+          echo "installing and signing Kanata..." >&2
+          kanataTmp=$(mktemp /tmp/kanata.XXXXXX)
+          install -m 0755 -o ${lib.escapeShellArg config.system.primaryUser} "$kanataPackage/bin/kanata" "$kanataTmp"
+          /usr/bin/sudo --user ${lib.escapeShellArg config.system.primaryUser} --set-home -- \
+            /usr/bin/codesign --force --sign "$kanataIdentity" --identifier kanata --timestamp=none "$kanataTmp"
+          chown root:wheel "$kanataTmp"
+          mv -f "$kanataTmp" "$kanata"
+          kanataChanged=true
+        fi
+      '';
+
+      postActivation.text = ''
+        if [[ "$kanataChanged" == true ]]; then
+          /bin/launchctl kickstart -k system/com.jtroo.kanata
+          if [[ ! -e "$kanata.package" ]]; then
+            printf >&2 '\nKanata needs one-time macOS permissions:\n  System Settings > Privacy & Security > Input Monitoring\n  System Settings > Privacy & Security > Accessibility\nUse +, press Command-Shift-G, and select %s in both lists.\nThen run: sudo launchctl kickstart -k system/com.jtroo.kanata\n' "$kanata"
+          fi
+          printf '%s\n' "$kanataPackage:$kanataIdentity" > "$kanata.package"
+        fi
+      '';
     };
 
     users.users.${config.system.primaryUser} = {
