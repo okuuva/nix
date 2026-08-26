@@ -66,6 +66,7 @@
       "signal"
       "tailscale-app" # tailscale recommend using this instead of the appstore version
       "updf"
+      "vorssaint"
       "zen"
     ];
     onActivation.cleanup = "zap";
