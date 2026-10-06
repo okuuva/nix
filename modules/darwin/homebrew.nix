@@ -50,6 +50,7 @@
       "bettertouchtool"
       "captin"
       "chatterino"
+      "cmux"
       "fontgoggles"
       "fuse-t"
       "fuse-t-sshfs"
