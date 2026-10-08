@@ -61,6 +61,11 @@
     system.primaryUser = lib.mkDefault config.my.user.name;
 
     system.defaults = {
+      CustomUserPreferences."com.apple.iCal".NSUserKeyEquivalents = {
+        "Go to Today" = "@$u";
+        "Next" = "@$]";
+        "Previous" = "@$[";
+      };
       controlcenter.BatteryShowPercentage = true;
       dock = {
         autohide = true;
