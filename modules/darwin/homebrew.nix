@@ -23,6 +23,7 @@
       # zmx
       "anylinuxfs"
       "rift"
+      "dutis"
       # anylinuxfs deps
       "libunistring"
       "gettext"
@@ -93,6 +94,7 @@
       "neurosnap/homebrew-tap" = inputs.zmx-tap;
       "acsandmann/homebrew-tap" = inputs.rift-tap;
       "nohajc/homebrew-tap" = inputs.anylinuxfs-tap;
+      "tsonglew/homebrew-tap" = inputs.dutis-tap;
     };
     mutableTaps = false;
   };

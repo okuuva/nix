@@ -58,6 +58,22 @@
         "type": "github"
       }
     },
+    "dutis-tap": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787563185,
+        "narHash": "sha256-UUb6sCgQHWHYM7iXQhdnGO5eKRrjpBj7TbA8HnxX+AU=",
+        "owner": "tsonglew",
+        "repo": "homebrew-tap",
+        "rev": "80227385d4326c9118a7365d34075a3bb8a23471",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tsonglew",
+        "repo": "homebrew-tap",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -348,6 +364,7 @@
     "root": {
       "inputs": {
         "anylinuxfs-tap": "anylinuxfs-tap",
+        "dutis-tap": "dutis-tap",
         "fuse-t-cask": "fuse-t-cask",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",

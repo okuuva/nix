@@ -32,6 +32,10 @@
       url = "github:nohajc/homebrew-anylinuxfs";
       flake = false;
     };
+    dutis-tap = {
+      url = "github:tsonglew/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs = inputs @ {
