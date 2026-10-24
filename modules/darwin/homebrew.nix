@@ -61,6 +61,7 @@
       "iina"
       "karabiner-elements"
       "legcord"
+      "linearmouse"
       "obsidian"
       "podman-desktop"
       "raycast"
