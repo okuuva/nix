@@ -1,5 +1,9 @@
 # Nix config
 
+## NixOS hosts
+
+- [Homeslab](hosts/nixos/homeslab/README.md): Spike's puny home lab, with installation and restore notes.
+
 ## macOS Homebrew troubleshooting
 
 Homebrew packages are declared in `modules/darwin/homebrew.nix`, but manual `brew` commands are still appropriate for repairing Homebrew's installed state.

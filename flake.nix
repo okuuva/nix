@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
@@ -89,5 +91,10 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#<host-file-name>
     darwinConfigurations = lib.genAttrs darwinHostNames (name: mkDarwinHost ./hosts/darwin/${name}.nix);
+
+    nixosConfigurations.homeslab = mkNixosHost {
+      system = "x86_64-linux";
+      modules = [inputs.disko.nixosModules.disko ./hosts/nixos/homeslab];
+    };
   };
 }
